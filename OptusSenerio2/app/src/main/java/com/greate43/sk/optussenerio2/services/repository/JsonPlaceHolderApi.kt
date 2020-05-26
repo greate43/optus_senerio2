@@ -8,8 +8,8 @@ import retrofit2.http.Query
 
 interface JsonPlaceHolderApi {
     @GET("users")
-    fun listUsers(): Flowable<Users>
+    fun listUsers(): Flowable<List<Users>>
 
     @GET("photos")
-    fun getPhotosById(@Query("id") id :Int ): Flowable<Photos>
+    fun getPhotosById(@Query("albumId") id :Int ): Flowable<List<Photos>>
 }

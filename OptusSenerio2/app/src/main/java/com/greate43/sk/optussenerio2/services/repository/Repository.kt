@@ -10,7 +10,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 
 object Repository {
 
-    fun listUsers(): LiveData<Users> {
+    fun listUsers(): LiveData<List<Users>> {
         return LiveDataReactiveStreams.fromPublisher(
             getRequestApi()
                 .listUsers()
@@ -18,7 +18,7 @@ object Repository {
         )
     }
 
-    fun getPhotosByUserId(id: Int): LiveData<Photos> {
+    fun getPhotosByUserId(id: Int): LiveData<List<Photos>> {
         return LiveDataReactiveStreams.fromPublisher(
             getRequestApi()
                 .getPhotosById(id)

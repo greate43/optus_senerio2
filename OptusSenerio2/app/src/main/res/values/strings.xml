@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Optus Senerio 2</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="phone_number">Phone Number :</string>
+    <string name="dummy_number">12121212121</string>
+    <string name="email">Email:</string>
+    <string name="name">Salman</string>
+    <string name="nameLbl">name:</string>
+    <string name="id">ID :</string>
 </resources>

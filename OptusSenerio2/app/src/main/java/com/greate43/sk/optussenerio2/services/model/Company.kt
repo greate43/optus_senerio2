@@ -1,3 +1,5 @@
+package com.greate43.sk.optussenerio2.services.model
+
 import com.google.gson.annotations.SerializedName
 
 
