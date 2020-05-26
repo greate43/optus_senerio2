@@ -1,7 +1,8 @@
-package com.greate43.sk.optussenerio2
+package com.greate43.sk.optussenerio2.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.greate43.sk.optussenerio2.R
 
 class MainActivity : AppCompatActivity() {
 
