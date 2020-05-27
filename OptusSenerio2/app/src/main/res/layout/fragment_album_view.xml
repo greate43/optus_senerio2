@@ -59,23 +59,23 @@
                 app:layout_constraintTop_toBottomOf="@+id/photoIdLbl"
                 app:placeholder="@{@drawable/ic_launcher_background}" />
 
-            <TextView
-                android:id="@+id/ImageTextAV"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:background="@color/blue"
-                android:padding="10dp"
-                android:text="@{photos.title}"
-                android:textAlignment="center"
-                android:textSize="24sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/imageViewAV"
-                app:layout_constraintStart_toStartOf="@+id/imageViewAV"
-                app:layout_constraintTop_toBottomOf="@+id/imageViewAV"
-                app:layout_constraintVertical_bias="0.0"
-                tools:text="Image Text" />
+        <TextView
+            android:id="@+id/ImageTextAV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/blue"
+            android:padding="20dp"
+            android:text="@{photos.title}"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/imageViewAV"
+            app:layout_constraintStart_toStartOf="@+id/imageViewAV"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewAV"
+            app:layout_constraintVertical_bias="0.0"
+            tools:text="Image Text" />
 
             <TextView
                 android:id="@+id/albumIdAV"

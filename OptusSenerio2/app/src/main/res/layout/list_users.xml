@@ -7,7 +7,9 @@
             name="user"
             type="com.greate43.sk.optussenerio2.services.model.Users" />
     </data>
+
     <androidx.cardview.widget.CardView
+        android:id="@+id/mainCardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -46,11 +48,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:text="@{Integer.toString(user.id)}"
                 app:layout_constraintBottom_toBottomOf="@+id/idLbl"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/idLbl"
                 app:layout_constraintTop_toTopOf="@+id/idLbl"
-                android:text="@{Integer.toString(user.id)}"
                 tools:text="1" />
 
             <TextView
@@ -72,12 +74,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
+                android:text="@{user.name}"
                 app:layout_constraintBottom_toTopOf="@+id/emailLbl"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/guideline"
                 app:layout_constraintTop_toTopOf="@+id/nameLbl"
-                android:text="@{user.name}"
                 tools:text="@string/name" />
 
             <TextView
@@ -86,14 +88,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
+                android:text="@{user.email}"
                 app:layout_constraintBottom_toBottomOf="@+id/emailLbl"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/guideline"
                 app:layout_constraintTop_toBottomOf="@+id/nameLbl"
-                tools:text="greate43.sk@gmail.com"
-                android:text="@{user.email}"
-                />
+                tools:text="greate43.sk@gmail.com" />
 
             <TextView
                 android:id="@+id/emailLbl"
@@ -113,14 +114,13 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:text="@{user.phone}"
                 app:layout_constraintBottom_toBottomOf="@+id/phoneNumberLbl"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/phoneNumberLbl"
                 app:layout_constraintTop_toTopOf="@+id/phoneNumberLbl"
-                tools:text="@string/dummy_number"
-                android:text="@{user.phone}"
-                />
+                tools:text="@string/dummy_number" />
 
             <TextView
                 android:id="@+id/phoneNumberLbl"

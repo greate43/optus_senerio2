@@ -20,8 +20,8 @@ import com.greate43.sk.optussenerio2.viewmodel.MainViewModel
 
 
 class MainFragment : Fragment() {
-    private val mainViewModel: MainViewModel by viewModels()
-    private lateinit var adapter: MainAdapter
+     val mainViewModel: MainViewModel by viewModels()
+    lateinit var adapter: MainAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,7 +30,7 @@ class MainFragment : Fragment() {
         val binding: FragmentMainBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_main, container, false)
 
-        requireActivity().title ="User Info"
+        requireActivity().title =getString(R.string.userInfoTitle)
         binding.mainRecyclerView
             .setHasFixedSize(true)
         val llm = LinearLayoutManager(context)
