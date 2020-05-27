@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity() {
         transaction.replace(binding.fragmentContainerView.id,
             MainFragment.newInstance()
         )
-        //transaction.addToBackStack(null)
         transaction.commit()
 
 

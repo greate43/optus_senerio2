@@ -1,14 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".AlbumViewFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <data>
+
+        <variable
+            name="photos"
+            type="com.greate43.sk.optussenerio2.services.model.Photos" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent">
 
-</FrameLayout>
+
+
+            <TextView
+                android:id="@+id/albumIdLbl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/album_id"
+                android:textColor="@color/cardview_dark_background"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/guideline3"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/photoIdLbl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/photo_id"
+                android:textColor="@color/cardview_dark_background"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/guideline3"
+                app:layout_constraintTop_toBottomOf="@+id/albumIdLbl" />
+
+            <ImageView
+                android:id="@+id/imageViewAV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
+                android:src="@drawable/ic_launcher_background"
+                app:error="@{@drawable/ic_broken_image_black_24dp}"
+                app:imageUrl="@{photos.url}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/photoIdLbl"
+                app:placeholder="@{@drawable/ic_launcher_background}" />
+
+            <TextView
+                android:id="@+id/ImageTextAV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@color/blue"
+                android:padding="10dp"
+                android:text="@{photos.title}"
+                android:textAlignment="center"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/imageViewAV"
+                app:layout_constraintStart_toStartOf="@+id/imageViewAV"
+                app:layout_constraintTop_toBottomOf="@+id/imageViewAV"
+                app:layout_constraintVertical_bias="0.0"
+                tools:text="Image Text" />
+
+            <TextView
+                android:id="@+id/albumIdAV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@{Integer.toString(photos.albumId)}"
+                android:textColor="@color/cardview_dark_background"
+                app:layout_constraintBottom_toBottomOf="@+id/albumIdLbl"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/albumIdLbl"
+                app:layout_constraintTop_toTopOf="@+id/albumIdLbl"
+                tools:text="1" />
+
+            <TextView
+                android:id="@+id/photoIdAV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@{Integer.toString(photos.id)}"
+                android:textColor="@color/cardview_dark_background"
+                app:layout_constraintBottom_toBottomOf="@+id/photoIdLbl"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.25"
+                app:layout_constraintStart_toEndOf="@+id/photoIdLbl"
+                app:layout_constraintTop_toTopOf="@+id/photoIdLbl"
+                tools:text="1" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.34" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

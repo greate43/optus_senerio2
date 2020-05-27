@@ -9,4 +9,6 @@
     <string name="name">Salman</string>
     <string name="nameLbl">name:</string>
     <string name="id">ID :</string>
+    <string name="album_id">Album Id :</string>
+    <string name="photo_id">Photo Id :</string>
 </resources>

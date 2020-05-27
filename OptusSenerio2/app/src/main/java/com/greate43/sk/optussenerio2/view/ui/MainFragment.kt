@@ -29,6 +29,8 @@ class MainFragment : Fragment() {
     ): View? {
         val binding: FragmentMainBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_main, container, false)
+
+        requireActivity().title ="User Info"
         binding.mainRecyclerView
             .setHasFixedSize(true)
         val llm = LinearLayoutManager(context)
@@ -50,13 +52,21 @@ class MainFragment : Fragment() {
             transaction.commit()
         }
         binding.mainRecyclerView.adapter = adapter
+        refresh(binding)
+        binding.lifecycleOwner = viewLifecycleOwner
+        binding.mainRefresh.setOnRefreshListener {
+            refresh(binding)
+        }
+        return binding.root
+    }
+
+    private fun refresh(binding: FragmentMainBinding) {
+        binding.mainRefresh.isRefreshing = true
         mainViewModel.listUser().observe(viewLifecycleOwner,
             Observer { users ->
                 adapter.setData(users)
+                binding.mainRefresh.isRefreshing = false
             })
-        binding.lifecycleOwner = viewLifecycleOwner
-
-        return binding.root
     }
 
     companion object {

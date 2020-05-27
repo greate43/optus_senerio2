@@ -4,9 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DefaultItemAnimator
@@ -38,6 +39,7 @@ class AlbumFragment : Fragment() {
         // Inflate the layout for this fragment
         val binding: FragmentAlbumBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_album, container, false)
+        requireActivity().title ="Album Info"
 
         binding.albumIdFB.text = id
         binding.recyclerViewAlbum
@@ -51,18 +53,35 @@ class AlbumFragment : Fragment() {
             .itemAnimator = DefaultItemAnimator()
 
         adapter = AlbumAdapter {
-            Toast.makeText(context, "Click ${it.id}", Toast.LENGTH_SHORT).show()
+            val manager: FragmentManager = requireActivity().supportFragmentManager
+            val transaction: FragmentTransaction = manager.beginTransaction()
+            transaction.replace(
+                R.id.fragmentContainerView,
+                AlbumViewFragment.newInstance(photos = it)
+            )
+            transaction.addToBackStack(null)
+            transaction.commit()
         }
         binding.recyclerViewAlbum.adapter = adapter
-        id.let {
-            mainViewModel.getPhotoById(it.toInt()).observe(viewLifecycleOwner,
-                Observer { users ->
-                    adapter.setData(users)
-                })
+
+        refresh(binding)
+        binding.albumRefresh.setOnRefreshListener {
+            refresh(binding)
         }
         binding.lifecycleOwner = viewLifecycleOwner
 
         return binding.root
+    }
+
+    private fun refresh(binding: FragmentAlbumBinding) {
+        binding.albumRefresh.isRefreshing = true
+        id.let {
+            mainViewModel.getPhotoById(it.toInt()).observe(viewLifecycleOwner,
+                Observer { users ->
+                    adapter.setData(users)
+                    binding.albumRefresh.isRefreshing = false
+                })
+        }
     }
 
     companion object {
